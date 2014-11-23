@@ -2,10 +2,10 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.util.Random;
 
-public class MatcherRobot extends Bejeweled
+public class MatcherRobot
 {
 
-	public static void findThem() throws Exception 
+	public static void findThem(int[][] grid) throws Exception 
 	{
 		Robot r = new Robot();
 		Random random = new Random();
@@ -23,9 +23,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 0] == grid[x + 0][y + 2] && grid[x + 0][y + 2] == grid[x + 0][y + 3])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -39,9 +39,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 1][y + 0] == grid[x + 0][y + 1] && grid[x + 0][y + 1] == grid[x + 0][y + 2])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -54,9 +54,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 0] == grid[x + 1][y + 1] && grid[x + 1][y + 1] == grid[x + 0][y + 2])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -69,9 +69,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 0] == grid[x + 0][y + 1] && grid[x + 0][y + 1] == grid[x + 1][y + 2])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 2)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 2)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 2)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 2)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -86,9 +86,9 @@ public class MatcherRobot extends Bejeweled
 				{			
 					if (grid[x + 0][y + 0] == grid[x + 0][y + 1] && grid[x + 0][y + 1] == grid[x + 0][y + 3]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 3)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 3)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 2)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 2)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -102,9 +102,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 0] == grid[x + 1][y + 1] && grid[x + 1][y + 1] == grid[x + 1][y + 2]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -118,9 +118,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 1][y + 0] == grid[x + 0][y + 1] && grid[x + 0][y + 1] == grid[x + 1][y + 2]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -134,9 +134,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 1][y + 0] == grid[x + 1][y + 1] && grid[x + 1][y + 1] == grid[x + 0][y + 2]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 2)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 2)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 2)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 2)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -148,9 +148,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x][y] == grid[x + 1][y] && grid[x + 1][y] == grid[x + 3][y]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 3)), originY + (squareDimension * y));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 3)), Bejeweled.originY + (Bejeweled.squareDimension * y));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 2)), originY + (squareDimension * y));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 2)), Bejeweled.originY + (Bejeweled.squareDimension * y));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -163,9 +163,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x][y] == grid[x + 1][y + 1] && grid[x + 1][y + 1] == grid[x + 2][y + 1])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -176,9 +176,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 1] == grid[x + 1][y + 0] && grid[x + 1][y + 0] == grid[x + 2][y + 1])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -191,9 +191,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 1] == grid[x + 1][y + 1] && grid[x + 1][y + 1] == grid[x + 2][y + 0])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 2)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 2)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 2)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 2)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -204,9 +204,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x][y] == grid[x + 2][y] && grid[x + 2][y] == grid[x + 3][y])
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * y));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * y));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * y));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * y));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -218,9 +218,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 1] == grid[x + 1][y + 0] && grid[x + 1][y + 0] == grid[x + 2][y + 0]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -233,9 +233,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 0] == grid[x + 1][y + 1] && grid[x + 1][y + 1] == grid[x + 2][y + 0]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -248,9 +248,9 @@ public class MatcherRobot extends Bejeweled
 				{
 					if (grid[x + 0][y + 0] == grid[x + 1][y + 0] && grid[x + 1][y + 0] == grid[x + 2][y + 1]) 
 					{
-						r.mouseMove(originX + (squareDimension * (x + 2)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 2)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 2)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 2)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 					}
 				}
@@ -261,31 +261,31 @@ public class MatcherRobot extends Bejeweled
 					//-
 					//h
 					case 0:
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y - 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y - 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 						break;
 					//h-
 					case 1:
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 						break;
 					//h
 					//-
 					case 2:
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 1)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 1)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 						break;
 					//-h
 					case 3:
-						r.mouseMove(originX + (squareDimension * (x + 1)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 1)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mousePress(InputEvent.BUTTON1_MASK);
-						r.mouseMove(originX + (squareDimension * (x + 0)), originY + (squareDimension * (y + 0)));
+						r.mouseMove(Bejeweled.originX + (Bejeweled.squareDimension * (x + 0)), Bejeweled.originY + (Bejeweled.squareDimension * (y + 0)));
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 						break;
 					}

@@ -49,7 +49,7 @@ public class Bejeweled
 						System.out.println("\n");
 					}
 				}
-				MatcherRobot.findThem();
+				MatcherRobot.findThem(grid);
 				//thread timing is special? other timings seem to cause picture capture errors where it captures an arbitrary squareDimension length away from the actual origin?
 				Thread.sleep(100);
 			}
