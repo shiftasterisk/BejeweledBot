@@ -1,9 +1,15 @@
+package GhoulCatchersBot;
+
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * run this class when needing to find updated color values for the grid, will auto detect the grid.
@@ -21,21 +27,33 @@ public class ColorFinder {
 					System.out.println(desktopCapture.getRGB(x, y));
 				}
 				if(desktopCapture.getRGB(x, y) == -Colors.originPixel.colorNum && desktopCapture.getRGB(x, y+1) == -Colors.originBottomPixel.colorNum){
-					origin = new Point(x, y);
+					origin = new Point(x+2, y-2);
 					break;
 				}
 			}
 		}
-		
+
 
 		System.out.println(origin);
-		origin.x = origin.x + Bejeweled.squareDimension/2;
-		origin.y = origin.y + Bejeweled.squareDimension/2;
-		
-		for(int y = 0; y < 8; y++){
-			for(int x = 0; x < 8; x++){
-				//System.out.print(String.format("(%d, %d)", origin.x + (40 * x), origin.y + (40 * y)));
+		origin.x = origin.x;
+		origin.y = origin.y;
+
+		for(int y = 0; y < 6; y++){
+			for(int x = 0; x < 6; x++){
 				System.out.print(desktopCapture.getRGB(origin.x + (40 * x), origin.y + (40 * y)));
+
+				BufferedImage miniShot = desktopCapture.getSubimage(origin.x + (x*GhoulCatchers.squareDimension), origin.y + (y*GhoulCatchers.squareDimension), GhoulCatchers.squareDimension,GhoulCatchers.squareDimension );
+				if(GhoulCatchers.saveScreenshots) { 
+					try {
+						File outputfile = new File("screenshot" + x + "" + y + ".jpg");
+						ImageIO.write(miniShot, "jpg", outputfile);
+
+					} catch (IOException e) {
+
+						e.printStackTrace();
+
+					}
+				}
 			}
 			System.out.println("\n");
 		}
