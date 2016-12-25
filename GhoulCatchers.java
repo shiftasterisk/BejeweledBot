@@ -7,8 +7,8 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 /**
- * run this class when on the actual bejeweled grid
- * may not move the bejeweled screen after execution. will calibrate after first execution
+ * run this class when on the actual ghoul catchers grid
+ * may not move the ghoul catchers screen after execution. will calibrate after first execution
  * continues to run and process jewels game after game.
  */
 public class GhoulCatchers 
@@ -27,6 +27,7 @@ public class GhoulCatchers
 
 	public static void main(String[] args) throws Exception
 	{
+		Thread.sleep(5000);
 		Robot r = new Robot();
 		Point origin = OriginFinder.findOrigin();
 		if(origin == null){
@@ -41,7 +42,7 @@ public class GhoulCatchers
 			
 			r.mouseMove(originX, originY);
 	
-			while(gamesWon <= 40)
+			while(gamesWon < 50)
 			{
 				PointerInfo pointer = MouseInfo.getPointerInfo();
 			    Point coord = pointer.getLocation();

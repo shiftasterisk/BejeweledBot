@@ -277,7 +277,7 @@ public class MatcherRobot
 	public static void clickMouse(Robot r) {
 		r.mousePress(InputEvent.BUTTON1_MASK);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
