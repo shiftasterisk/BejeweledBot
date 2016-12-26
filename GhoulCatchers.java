@@ -15,7 +15,7 @@ public class GhoulCatchers
 {
 	public static int[][] grid = new int[6][6];
 	
-	static final int squareDimension = 83;
+	static int squareDimension = 0;
 	static long starttime = System.currentTimeMillis();
 	static boolean debugMsg = false;
 	static boolean saveScreenshots = false;
@@ -30,6 +30,7 @@ public class GhoulCatchers
 		Thread.sleep(5000);
 		Robot r = new Robot();
 		Point origin = OriginFinder.findOrigin();
+		
 		if(origin == null){
 			System.out.println("origin of ghoul catchers grid not found!");
 			return;
@@ -37,8 +38,16 @@ public class GhoulCatchers
 		else{
 			originX = origin.x;
 			originY = origin.y;
+			
+			squareDimension = OriginFinder.getSquareDimension(originX, originY);
 
-			System.out.println(origin);
+			if(squareDimension == 0) {
+				System.out.println("Could not determine square dimension");
+				return;
+			}
+			
+			System.out.println(origin);						
+			System.out.println("SqaureDimension - " + squareDimension);
 			
 			r.mouseMove(originX, originY);
 	
@@ -49,7 +58,7 @@ public class GhoulCatchers
 			    if(coord.getX() == originX && coord.getY() == originY) {
 					if(GridScanner.checkWin()) {
 						gamesWon++;
-						r.mouseMove(originX + (squareDimension * 3), originY + (GhoulCatchers.squareDimension * 4) + 40);
+						r.mouseMove(originX + (squareDimension * 3), originY + (GhoulCatchers.squareDimension * 4) + (GhoulCatchers.squareDimension/2));
 						r.mousePress(InputEvent.BUTTON1_MASK);
 						r.mouseRelease(InputEvent.BUTTON1_MASK);
 						System.out.println("Game Won - Total Won " + gamesWon);
@@ -74,8 +83,6 @@ public class GhoulCatchers
 			    	break;
 			    }
 			}
-
-
 		}
 	}
 }
