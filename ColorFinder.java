@@ -1,15 +1,10 @@
 package GhoulCatchersBot;
 
 import java.awt.AWTException;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * run this class when needing to find updated color values for the grid, will auto detect the grid.
@@ -17,46 +12,41 @@ import javax.imageio.ImageIO;
  */
 public class ColorFinder {
 
-	public static void main(String[] args) throws AWTException {
-		Robot rob = new Robot();
-		BufferedImage desktopCapture = rob.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-		Point origin = null;
-		for(int y = 0; y < desktopCapture.getHeight(); y++){
-			for(int x = 0; x < desktopCapture.getWidth(); x++){
-				if(x == 523 && y == 266){
-					System.out.println(desktopCapture.getRGB(x, y));
-				}
-				if(desktopCapture.getRGB(x, y) == -Colors.originPixel.colorNum && desktopCapture.getRGB(x, y+1) == -Colors.originBottomPixel.colorNum){
-					origin = new Point(x+2, y-2);
-					break;
-				}
-			}
-		}
-
-
-		System.out.println(origin);
-		origin.x = origin.x;
-		origin.y = origin.y;
-
+	public static void main(String[] args) throws Exception {
+		Game game = new Game();
+		BufferedImage gridImage = game.screenshotter.takeBoardScreenshot();
 		for(int y = 0; y < 6; y++){
 			for(int x = 0; x < 6; x++){
-				System.out.print(desktopCapture.getRGB(origin.x + (40 * x), origin.y + (40 * y)));
-
-				BufferedImage miniShot = desktopCapture.getSubimage(origin.x + (x*GhoulCatchers.squareDimension), origin.y + (y*GhoulCatchers.squareDimension), GhoulCatchers.squareDimension,GhoulCatchers.squareDimension );
-				if(GhoulCatchers.saveScreenshots) { 
-					try {
-						File outputfile = new File("screenshot" + x + "" + y + ".jpg");
-						ImageIO.write(miniShot, "jpg", outputfile);
-
-					} catch (IOException e) {
-
-						e.printStackTrace();
-
-					}
-				}
+				BufferedImage ghoulImage = game.screenshotter.getGhoulImage(gridImage, x, y);
+				System.out.print(getDensestColor(ghoulImage) + " - ");
 			}
 			System.out.println("\n");
 		}
+	}
+
+	public static int getDensestColor(BufferedImage ghoulImage) throws IOException, AWTException 
+	{
+		int densestColor = 0;
+		int colorAppearances = 0;
+		HashMap<Integer, Integer> squareColors = new HashMap<Integer, Integer>();
+		for(int y = 0; y < ghoulImage.getHeight(); y++){
+			for(int x = 0; x < ghoulImage.getWidth(); x++){
+				int color = ghoulImage.getRGB(x, y);
+				if(!squareColors.containsKey(ghoulImage.getRGB(x, y)))
+					squareColors.put(color, 1);
+				else
+					squareColors.put(color, squareColors.get(color)+1);
+			}
+		}
+
+		for (Entry<Integer, Integer> entry : squareColors.entrySet()) {
+			if(entry.getValue() > colorAppearances) {
+				densestColor = entry.getKey();
+				colorAppearances = entry.getValue();
+			}
+		}
+
+		return densestColor;
 	}
 
 }
