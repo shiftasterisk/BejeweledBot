@@ -93,9 +93,8 @@ public class GameUtils
 		return 0;
 	}
 	
-	public static int randomMoveWait() {
+	public static int randomMoveWait(int slowestMoveSpeed, int fastestMoveSpeed) {
 		Random random = new Random();
-		return random.nextInt(1500) + 1500;
-		
+		return random.nextInt(fastestMoveSpeed-slowestMoveSpeed+1) + slowestMoveSpeed;
 	}
 }

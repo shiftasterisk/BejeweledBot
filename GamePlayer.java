@@ -9,12 +9,18 @@ public class GamePlayer {
 	int originX;
 	int originY;
 	int squareDimension;
+	public int replayClickXOffset;
+	public int replayClickYOffset;
+	private boolean debugMsg;
 
 	public GamePlayer(Game game) throws Exception {
 		robot = game.robot;
-		this.originX = game.gameParameters.originX;
-		this.originY = game.gameParameters.originY;
-		this.squareDimension = game.gameParameters.squareDimension;
+		originX = game.gameParameters.originX;
+		originY = game.gameParameters.originY;
+		squareDimension = game.gameParameters.squareDimension;
+		replayClickXOffset = game.settings.replayButtonXOffset;
+		replayClickYOffset = game.settings.replayClickYOffset;
+		debugMsg = game.settings.debugMsg;
 	}
 
 	public void moveToOrigin() {
@@ -22,7 +28,9 @@ public class GamePlayer {
 	}
 
 	public void restartGame() throws Exception {
-		robot.mouseMove(originX + (squareDimension * 3), originY + (squareDimension * 4) + (squareDimension/2) + (squareDimension/100));
+		if(debugMsg)
+			System.out.println("Clicking restart button");
+		robot.mouseMove(originX + (squareDimension * 3) + replayClickXOffset, originY + (squareDimension * 4) + (squareDimension/2) + (squareDimension/50) + replayClickYOffset);
 		clickMouse();
 	}
 
@@ -30,7 +38,7 @@ public class GamePlayer {
 		Move move = MoveFinder.findMove(grid);
 		
 		if(move != null) {
-			if(GhoulCatchers.debugMsg)
+			if(debugMsg)
 				System.out.println("Moving " + move.originSquareX + "," + move.originSquareY + " to " + move.destinationSquareX + "," + move.destinationSquareY);
 			robot.mouseMove((originX + (squareDimension/2))  + (squareDimension * move.originSquareX), (originY + (squareDimension/2)) + (squareDimension * move.originSquareY));
 			clickMouse();

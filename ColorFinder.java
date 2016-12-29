@@ -13,7 +13,8 @@ import java.util.Map.Entry;
 public class ColorFinder {
 
 	public static void main(String[] args) throws Exception {
-		Game game = new Game();
+		Settings settings = new Settings();
+		Game game = new Game(settings);
 		BufferedImage gridImage = game.screenshotter.takeBoardScreenshot();
 		for(int y = 0; y < 6; y++){
 			for(int x = 0; x < 6; x++){

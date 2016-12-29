@@ -12,7 +12,7 @@ public enum Colors {
 	green(-15151071),
 	blue(-4653070),
 	purple(-9219642),
-	replayButton(-3286557);
+	replayButton(-12498610);
 
 	int colorNum;
 

@@ -8,16 +8,15 @@ package GhoulCatchersBot;
 public class GhoulCatchers 
 {
 	static long startTime = System.currentTimeMillis();
-	static boolean debugMsg = false;
-	static boolean saveScreenshots = false;
 	public static int gamesWon = 0;
 
 	public static void main(String[] args) throws Exception
 	{
 		Thread.sleep(5000);
-		Game game = new Game();
+		Settings settings = new Settings();
+		Game game = new Game(settings);
 
-		while(gamesWon < 50)
+		while(gamesWon < settings.gamesToPlay)
 		{
 			game.autoPlay();
 		}

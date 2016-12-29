@@ -6,13 +6,15 @@ public class Game{
 	public int[][] grid;
 
 	public Robot robot;
+	public Settings settings;
 	public Screenshotter screenshotter;
 	public GameParameters gameParameters;
 	public GamePlayer gamePlayer;
 
-	public Game() throws Exception {
+	public Game(Settings settings) throws Exception {
 		grid = new int[6][6];
 		robot = new Robot();
+		this.settings = settings;
 		screenshotter = new Screenshotter(this);
 		gameParameters = new GameParameters(this);
 		screenshotter.setGameParameters(gameParameters);
@@ -28,12 +30,12 @@ public class Game{
 			processWin();
 		} else {
 			GameUtils.scanGrid(this);
-			if(GhoulCatchers.debugMsg)
+			if(settings.debugMsg)
 				GameUtils.printGrid(this);
 			gamePlayer.makeMove(grid);
 		}
 		gamePlayer.moveToOrigin();
-		Thread.sleep(GameUtils.randomMoveWait());
+		Thread.sleep(GameUtils.randomMoveWait((int)settings.slowestMoveSpeed*1000, (int)settings.fastestMoveSpeed*1000));
 	}
 
 	public void processWin() throws Exception {
